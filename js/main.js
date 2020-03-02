@@ -32,6 +32,15 @@ $(document).ready(function(){
         }, 2000)
     })
 
+    $('.fas fa-play').click(function(){
+        var clock = setInterval(function(){
+            slideNext();
+        }, 2000);
+    });
+    $('.fas fa-pause').click(function(){
+        clearInterval(clock);
+    });
+
     function slideNext(){
         if ($('.images img.active').hasClass('last')) {
             $('.images img.active').removeClass('active');
@@ -57,13 +66,6 @@ $(document).ready(function(){
             previousImg.addClass('active');
         }
     };
-
-
-
-
-
-
-
 
 
 
