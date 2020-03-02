@@ -5,9 +5,17 @@ $(document).ready(function(){
     $('.prev').click(function(){
         slidePrev();
     });
+    var orario = new Date();
+    console.log(orario);
 
+    var numeriSlide = 0;
     var clock = setInterval(function(){
-        slideNext();
+        if (numeriSlide < 3) {
+            slideNext();
+            numeriSlide++;
+        } else if (numeriSlide === 3) {
+            clearInterval(clock);
+        }
     }, 2000)
 
     function slideNext(){
