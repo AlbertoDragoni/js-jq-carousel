@@ -10,13 +10,27 @@ $(document).ready(function(){
 
     var numeriSlide = 0;
     var clock = setInterval(function(){
-        if (numeriSlide < 3) {
+        if (numeriSlide < 6) {
             slideNext();
             numeriSlide++;
-        } else if (numeriSlide === 3) {
+        } else if (numeriSlide === 6) {
             clearInterval(clock);
         }
     }, 2000)
+
+    $('.images img').mouseenter(function(){
+        clearInterval(clock);
+    })
+    $('.images img').mouseleave(function(){
+        var clock = setInterval(function(){
+            if (numeriSlide < 6) {
+                slideNext();
+                numeriSlide++;
+            } else if (numeriSlide === 6) {
+                clearInterval(clock);
+            }
+        }, 2000)
+    })
 
     function slideNext(){
         if ($('.images img.active').hasClass('last')) {
